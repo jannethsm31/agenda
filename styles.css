@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+#calendario {
+    margin: 20px;
+}
+
+.controles {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    width: 14.28%; /* Para dividir en 7 columnas */
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+td.dia:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+#actividades {
+    margin: 20px;
+}
+
+#actividades h2 {
+    margin-bottom: 10px;
+}
+
+#nuevaActividad {
+    padding: 5px;
+    width: 80%;
+}
+
+#agregarActividad {
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+
+#listaActividades {
+    list-style: none;
+    padding: 0;
+}
+
+#listaActividades li {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+#listaActividades li span {
+    margin-left: 10px;
+}
+
+#actividades h2 {
+    margin-bottom: 10px;
+}
+
+#nuevaActividad {
+    padding: 5px;
+    width: 80%;
+}
+
+#agregarActividad {
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+
+#listaActividades {
+    list-style: none;
+    padding: 0;
+}
+
+#listaActividades li {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+#listaActividades li span {
+    margin-left: 10px;
+}
+
+#listaActividades div {
+    margin-top: 15px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icons a {
+    text-decoration: none;
+    color: white;
+}
+
+.icons i {
+    font-size: 1.5em;
+}

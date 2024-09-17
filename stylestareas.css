@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #333;
+    font-size: 2em;
+}
+
+.tarea-form, .lista-tareas {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color:#007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #007bff;
+}
+
+.lista-tareas h2 {
+    margin-bottom: 10px;
+}
+
+#tareasContainer {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tarea {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.tarea p {
+    margin: 0;
+    flex-grow: 1;
+    padding: 0 10px;
+}
+
+.completar {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.eliminar {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.completar:hover {
+    background-color: #2980b9;
+}
+
+.eliminar:hover {
+    background-color: #c0392b;
+}
+
+.completada {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+.back-icon {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.5em;
+    margin-right: 15px;
+}
+
+.back-icon:hover {
+    color: #007BFF; 
+}
