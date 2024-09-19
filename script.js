@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const nombresDiasSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
     const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-
+    
     let fechaActual = new Date();
-    let actividadesPorDia = {};
+    //Recuperar actividades guardadas en localStorage
+    let actividadesPorDia = JSON.parse(localStorage.getItem('actividadesPorDia')) || {};
 
     const tabla = document.getElementById('tablaCalendario');
     const tbody = tabla.querySelector('tbody');
@@ -90,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         actividadesPorDia[diaSeleccionado].push({ texto: actividad, completada: false });
+        guaedarEnLocalStorage(); // Guardar actividades en localStorage
         nuevaActividadInput.value = '';
         renderizarActividades();
     });
@@ -124,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Marcar una actividad como completada
     function marcarCompletada(index) {
         actividadesPorDia[diaSeleccionado][index].completada = !actividadesPorDia[diaSeleccionado][index].completada;
+        guaedarEnLocalStorage(); // Guardar actividades en localStorage
         renderizarActividades();
     }
 
@@ -138,6 +141,11 @@ document.addEventListener('DOMContentLoaded', () => {
             mensajeFelicidades.style.fontWeight = 'bold';
             listaActividades.appendChild(mensajeFelicidades); // Mostrar el mensaje en la lista de actividades
         }
+    }
+
+    // Funcion para guardar actividades en localStorage
+    function guaedarEnLocalStorage() {
+        localStorage.setItem('actividadesPorDia', JSON.stringify(actividadesPorDia));
     }
 
     // Render inicial
