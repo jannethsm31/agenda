@@ -1,3 +1,5 @@
+import { guardarEnLocalStorage } from "./utils/guardarLocalStorage.js";
+
 document.addEventListener('DOMContentLoaded', () => {
     const formContacto = document.getElementById('formContacto');
     const nombreContacto = document.getElementById('nombreContacto');
@@ -21,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (nombre && telefono && email) {
             agregarContacto(nombre, telefono, email);
             contactos.push({ nombre, telefono, email });
-            guardarEnLocalStorage();//Guardar contactos en el localstorage
+            guardarEnLocalStorage('contactos', contactos);//Guardar contactos en el localstorage
             // Limpiar los campos del formulario
             nombreContacto.value = '';
             telefonoContacto.value = '';
@@ -50,14 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
         contactosContainer.appendChild(contactoLi);
     }
 
-    // Función para guardar los contactos en el LocalStorage
-    function guardarEnLocalStorage() {
-        localStorage.setItem('contactos', JSON.stringify(contactos));
-    }
-    
     // Función para eliminar un contacto
     function eliminarContacto(nombre) {
         contactos = contactos.filter(contacto => contacto.nombre !== nombre);
-        guardarEnLocalStorage();//Actualizar localstorage
+        guardarEnLocalStorage('contactos', contactos);//Actualizar localstorage
     }
 });

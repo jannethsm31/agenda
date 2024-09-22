@@ -1,7 +1,9 @@
+import { guardarEnLocalStorage } from "./utils/guardarLocalStorage.js";
+
 document.addEventListener('DOMContentLoaded', () => {
     const nombresDiasSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
     const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-    
+
     let fechaActual = new Date();
     //Recuperar actividades guardadas en localStorage
     let actividadesPorDia = JSON.parse(localStorage.getItem('actividadesPorDia')) || {};
@@ -91,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         actividadesPorDia[diaSeleccionado].push({ texto: actividad, completada: false });
-        guaedarEnLocalStorage(); // Guardar actividades en localStorage
+        guardarEnLocalStorage('actividadesPorDia', actividadesPorDia); // Guardar actividades en localStorage
         nuevaActividadInput.value = '';
         renderizarActividades();
     });
@@ -101,14 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
         listaActividades.innerHTML = '';
         mensajeFelicidades.textContent = ''; // Limpiar el mensaje de felicitaciones
         const actividades = actividadesPorDia[diaSeleccionado] || [];
-        
+
         actividades.forEach((actividad, index) => {
             const li = document.createElement('li');
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.checked = actividad.completada;
             checkbox.addEventListener('change', () => marcarCompletada(index));
-            
+
             const span = document.createElement('span');
             span.textContent = actividad.texto;
             if (actividad.completada) {
@@ -126,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Marcar una actividad como completada
     function marcarCompletada(index) {
         actividadesPorDia[diaSeleccionado][index].completada = !actividadesPorDia[diaSeleccionado][index].completada;
-        guaedarEnLocalStorage(); // Guardar actividades en localStorage
+        guardarEnLocalStorage('actividadesPorDia', actividadesPorDia); // Guardar actividades en localStorage
         renderizarActividades();
     }
 
@@ -143,10 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Funcion para guardar actividades en localStorage
-    function guaedarEnLocalStorage() {
-        localStorage.setItem('actividadesPorDia', JSON.stringify(actividadesPorDia));
-    }
+    // // Funcion para guardar actividades en localStorage
+    // function guaedarEnLocalStorage() {
+    //     localStorage.setItem('actividadesPorDia', JSON.stringify(actividadesPorDia));
+    // }
 
     // Render inicial
     renderizarCalendario(fechaActual);

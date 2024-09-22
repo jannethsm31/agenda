@@ -1,3 +1,5 @@
+import { guardarEnLocalStorage } from './utils/guardarLocalStorage.js'
+
 document.addEventListener('DOMContentLoaded', () => {
     const formTarea = document.getElementById('formTarea');
     const nombreTarea = document.getElementById('nombreTarea');
@@ -17,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (textoTarea !== "") {
             agregarTarea(textoTarea, false);
             tareas.push({ texto: textoTarea, completada: false });//Agregar la tarea al array
-            guardarEnLocalStorage();//Guardar las tareas en el LocalStorage
+            guardarEnLocalStorage('tareas', tareas);//Guardar las tareas en el LocalStorage
             nombreTarea.value = ''; // Limpiar el campo de entrada
         }
     });
@@ -29,9 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const tareaTexto = document.createElement('p');
         tareaTexto.textContent = texto;
-        if (completada) {
-            tareaTexto.classList.add('completada');//Si la tarea está completada, se le agrega la clase completada
-        }
 
         const botonCompletar = document.createElement('button');
         botonCompletar.textContent = 'Completar';
@@ -55,11 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
         tareasContainer.appendChild(tareaLi);
     }
 
-    // Función para guardar las tareas en el LocalStorage
-    function guardarEnLocalStorage() {
-        localStorage.setItem('tareas', JSON.stringify(tareas));
-    }
-
     // Función para actualizar el estado de la tarea
     function actualizarCompletada(texto) {
         tareas = tareas.map(tarea => {
@@ -68,12 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             return tarea;
         });
-        guardarEnLocalStorage();//Actualizar el localStorage
+        guardarEnLocalStorage('tareas', tareas);//Actualizar el localStorage
     }
-        
+
     // Función para eliminar una tarea
     function eliminarTarea(texto) {
         tareas = tareas.filter(tarea => tarea.texto !== texto);
-        guardarEnLocalStorage();//Actualizar el localStorage
+        guardarEnLocalStorage('tareas', tareas);//Actualizar el localStorage
     }
 });

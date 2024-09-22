@@ -1,3 +1,5 @@
+import { guardarEnLocalStorage } from "./utils/guardarLocalStorage.js";
+
 document.addEventListener('DOMContentLoaded', () => {
     const formNota = document.getElementById('formNota');
     const contenidoNota = document.getElementById('contenidoNota');
@@ -17,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (textoNota !== "") {
             agregarNota(textoNota);
             notas.push(textoNota);//Agrega las notas al array
-            guardarEnLocalStorage();//Guardar notas en el localstorage
+            guardarEnLocalStorage('notas', notas);//Guardar notas en el localstorage
             contenidoNota.value = ''; // Limpiar textarea
         }
     });
@@ -42,14 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
         notasContainer.appendChild(notaDiv);
     }
 
-    // Función para guardar las notas en el LocalStorage
-    function guardarEnLocalStorage() {
-        localStorage.setItem('notas', JSON.stringify(notas));
-    }
-
     // Función para eliminar una nota
     function eliminarNota(texto) {
         notas = notas.filter(nota => nota !== texto);
-        guardarEnLocalStorage();//Actualiza el localstorage
+        guardarEnLocalStorage('notas', notas);//Actualiza el localstorage
     }
 });

@@ -1,3 +1,5 @@
+import { guardarEnLocalStorage } from "./utils/guardarLocalStorage.js";
+
 document.addEventListener('DOMContentLoaded', () => {
     const formObjetivo = document.getElementById('formObjetivo');
     const nombreObjetivo = document.getElementById('nombreObjetivo');
@@ -19,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (textoObjetivo && prioridad) {
             agregarObjetivo(textoObjetivo, prioridad);
             objetivos.push({ texto: textoObjetivo, prioridad: prioridad });//Agrega el objetivo al array
-            guardarEnLocalStorage();//Guarda los objetivos en el localstorage
+            guardarEnLocalStorage('objetivos', objetivos);//Guarda los objetivos en el localstorage
             // Limpiar los campos del formulario
             nombreObjetivo.value = '';
             prioridadObjetivo.value = 'Alta';
@@ -60,14 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
         objetivosContainer.appendChild(objetivoLi);
     }
 
-    //Funcion para guardar los objetivos en el localstorage
-    function guardarEnLocalStorage() {
-        localStorage.setItem('objetivos', JSON.stringify(objetivos));
-    }
-
     //Funcion para eliminar un objetivo
     function eliminarObjetivo(texto) {
         objetivos = objetivos.filter(objetivo => objetivo.texto !== texto);
-        guardarEnLocalStorage();//Actualiza el localstorage
+        guardarEnLocalStorage('objetivos', objetivos);//Actualiza el localstorage
     }
 });

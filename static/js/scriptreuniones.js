@@ -1,3 +1,5 @@
+import { guardarEnLocalStorage } from "./utils/guardarLocalStorage.js";
+
 document.addEventListener('DOMContentLoaded', () => {
     const formReunion = document.getElementById('formReunion');
     const nombreReunion = document.getElementById('nombreReunion');
@@ -21,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (textoReunion && fecha && hora) {
             agregarReunion(textoReunion, fecha, hora);
             reuniones.push({ texto: textoReunion, fecha: fecha, hora: hora });//Agrega la reunion al array
-            guardarEnLocalStorage();//Guarda las reuniones en el localstorage
+            guardarEnLocalStorage('reuniones', reuniones);//Guarda las reuniones en el localstorage
             // Limpiar los campos del formulario
             nombreReunion.value = '';
             fechaReunion.value = '';
@@ -50,14 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
         reunionesContainer.appendChild(reunionLi);
     }
 
-    // Función para guardar las reuniones en el LocalStorage
-    function guardarEnLocalStorage() {
-        localStorage.setItem('reuniones', JSON.stringify(reuniones));
-    }
-
     // Función para eliminar una reunión del LocalStorage
     function eliminarReunion(texto, fecha, hora) {
         reuniones = reuniones.filter(reunion => reunion.texto !== texto && reunion.fecha !== fecha && reunion.hora !== hora);
-        guardarEnLocalStorage();//Actualizar el LocalStorage
+        guardarEnLocalStorage('reuniones', reuniones);//Actualizar el LocalStorage
     }
 });
