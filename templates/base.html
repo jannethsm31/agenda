@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Calendario Mensual{% endblock %}</title>
+
+    <!-- CSS común para todo el sitio -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/icon.ico') }}" type="image/x-icon">
+
+    <!-- Bloque para CSS específico de cada página -->
+    {% block extra_css %}{% endblock %}
+
+    <!-- Bloque para JavaScript específico de cada página -->
+    {% block extra_js %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>{% block header_title %} Calendario {% endblock %}</h1>
+            <div class="icons">
+                <a href="{{ url_for('home') }}" title="Home"><i class="fa-regular fa-calendar"></i></a>
+                <a href="{{ url_for('contactos') }}" title="Contactos"><i class="fas fa-address-book"></i></a>
+                <a href="{{ url_for('notas') }}" title="Notas"><i class="fas fa-sticky-note"></i></a>
+                <a href="{{ url_for('objetivos') }}" title="Objetivos"><i class="fas fa-bullseye"></i></a>
+                <a href="{{ url_for('reuniones') }}" title="Reuniones"><i class="fas fa-handshake"></i></a>
+                <a href="{{ url_for('tareas') }}" title="Tareas"><i class="fas fa-tasks"></i></a>
+            </div>
+        </div>
+    </header>
+    <main>
+        {% block content %}
+        <!-- Aquí va el contenido específico de cada página -->
+        {% endblock %}
+    </main>
+
+    <!-- <footer>
+        <p>&copy; 2024 Mi aplicación</p>
+    </footer> -->
+
+</body>
+</html>

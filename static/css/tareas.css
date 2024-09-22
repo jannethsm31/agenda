@@ -1,43 +1,27 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    padding: 20px;
-}
 
 header {
-    text-align: center;
     margin-bottom: 20px;
 }
 
-h1 {
-    color: #333;
-    font-size: 2em;
-}
-
-.objetivo-form, .lista-objetivos {
+.tarea-form, .lista-tareas {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 
-input[type="text"], select {
+input[type="text"] {
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
     border: 2px solid #ddd;
     border-radius: 5px;
 }
 
 button {
-    background-color: #007bff;
+    background-color:#007bff;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -50,16 +34,16 @@ button:hover {
     background-color: #007bff;
 }
 
-.lista-objetivos h2 {
+.lista-tareas h2 {
     margin-bottom: 10px;
 }
 
-#objetivosContainer {
+#tareasContainer {
     list-style-type: none;
     padding: 0;
 }
 
-.objetivo {
+.tarea {
     background-color: #f9f9f9;
     padding: 15px;
     border: 2px solid #ddd;
@@ -70,22 +54,19 @@ button:hover {
     margin-bottom: 10px;
 }
 
-.objetivo p {
+.tarea p {
     margin: 0;
     flex-grow: 1;
     padding: 0 10px;
 }
 
-.alta {
-    border-left: 5px solid red;
-}
-
-.media {
-    border-left: 5px solid orange;
-}
-
-.baja {
-    border-left: 5px solid green;
+.completar {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
 }
 
 .eliminar {
@@ -97,22 +78,15 @@ button:hover {
     padding: 5px 10px;
 }
 
+.completar:hover {
+    background-color: #2980b9;
+}
+
 .eliminar:hover {
     background-color: #c0392b;
 }
 
-.header-content {
-    display: flex;
-    align-items: center;
-}
-
-.back-icon {
-    text-decoration: none;
-    color: #000;
-    font-size: 1.5em;
-    margin-right: 15px;
-}
-
-.back-icon:hover {
-    color: #007BFF;
+.completada {
+    text-decoration: line-through;
+    color: #888;
 }

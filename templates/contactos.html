@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Contactos{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contactos.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock %}
+
+{% block extra_js %}
+    <script type="module" src="{{ url_for('static', filename='js/contactos.js') }}"></script>
+{% endblock %}
+
+{% block header_title %} Lista de contactos {% endblock %}
+
+{% block content %}
+
+    <section class="contacto-form">
+        <h2>Información de Contacto</h2>
+        <form id="formContacto">
+            <input type="text" id="nombreContacto" placeholder="Nombre" required>
+            <input type="tel" id="telefonoContacto" placeholder="Teléfono" required>
+            <input type="email" id="emailContacto" placeholder="Correo electrónico" required>
+            <button type="submit">Añadir Contacto</button>
+        </form>
+    </section>
+
+    <section class="lista-contactos">
+        <h2>Contactos Guardados</h2>
+        <ul id="contactosContainer"></ul>
+    </section>
+
+{% endblock %}

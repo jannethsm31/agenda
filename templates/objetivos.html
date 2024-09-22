@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Objetivos y Prioridades{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/objetivos.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock %}
+
+{% block extra_js %}
+    <script type="module" src="{{ url_for('static', filename='js/objetivos.js') }}"></script>
+{% endblock %}
+
+{% block header_title %} Objetivos y Prioridades {% endblock %}
+
+{% block content %}
+    <section class="objetivo-form">
+        <h2>Agregar Objetivo</h2>
+        <form id="formObjetivo">
+            <input type="text" id="nombreObjetivo" placeholder="Escribe tu objetivo..." required>
+            <label for="prioridadObjetivo">Prioridad:</label>
+            <select id="prioridadObjetivo" required>
+                <option value="Alta">Alta</option>
+                <option value="Media">Media</option>
+                <option value="Baja">Baja</option>
+            </select>
+            <button type="submit">Añadir Objetivo</button>
+        </form>
+    </section>
+
+    <section class="lista-objetivos">
+        <h2>Lista de Objetivos</h2>
+        <ul id="objetivosContainer"></ul>
+    </section>
+
+{% endblock %}

@@ -1,31 +1,14 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    padding: 20px;
-}
-
 header {
-    text-align: center;
     margin-bottom: 20px;
 }
-
-h1 {
-    color: #333;
-    font-size: 2em;
-}
-
 .contacto-form, .lista-contactos {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 input[type="text"], input[type="tel"], input[type="email"] {
@@ -87,20 +70,4 @@ button:hover {
 
 .eliminar:hover {
     background-color: #c0392b;
-}
-
-.header-content {
-    display: flex;
-    align-items: center;
-}
-
-.back-icon {
-    text-decoration: none;
-    color: #000;
-    font-size: 1.5em;
-    margin-right: 15px;
-}
-
-.back-icon:hover {
-    color: #007BFF; 
 }
