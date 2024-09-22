@@ -11,7 +11,7 @@
     <script type="module" src="{{ url_for('static', filename='js/tareas.js') }}"></script>
 {% endblock %}
 
-{% block header_title %} Lista de Tareas {% endblock %}
+{% block header_title %}<a href="{{ url_for('home') }}" title="Principal" style="text-decoration: none; color: white;"><i class="fa-solid fa-caret-left"></i></a> Lista de Tareas {% endblock %}
 
 {% block content %}
     <section class="tarea-form">

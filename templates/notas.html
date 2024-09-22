@@ -11,7 +11,7 @@
     <script type="module" src="{{ url_for('static', filename='js/notas.js') }}"></script>
 {% endblock %}
 
-{% block header_title %} Interfaz de Notas {% endblock %}
+{% block header_title %}<a href="{{ url_for('home') }}" title="Principal" style="text-decoration: none; color: white;"><i class="fa-solid fa-caret-left"></i></a> Interfaz de Notas {% endblock %}
 
 {% block content %}
 
