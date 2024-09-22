@@ -1,0 +1,66 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden; /* Evitar el desbordamiento horizontal */
+}
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Espacio de 20px en los lados */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+.opciones {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 15px;
+}
+
+/* Estilo de las tarjetas */
+.opcion {
+    background-color: #f9f9f9;
+    color: black;
+    height: 150px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.opcion h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.opcion p {
+    font-size: 1rem;
+    color: #333;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #ddd;
+    margin: 10px 0;
+}
+
+
+/* Hacer que algunas tarjetas ocupen dos columnas */
+.opcion:nth-child(1),
+.opcion:nth-child(2),
+.opcion:nth-child(5){
+    grid-column: span 2;
+}
+
+.opcion:nth-child(6) {
+    grid-column: span 4;
+}
+
+#opcionesContenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/principal.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock %}
+
+{% block extra_js %}
+    <script type="module" src="{{ url_for('static', filename='js/principal.js') }}"></script>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="contenedor">
+    <div class="opciones">
+        <section class="opcion">
+            <h2>Actividades de hoy</h2>
+            <hr>
+            <div id="opcionesContenedor" class="actividades">
+                <p>Hola</p>
+            </div>
+        </section>
+
+        <section class="opcion">
+            <h2>Notas recientes</h2>
+            <hr>
+            <div id="opcionesContenedor" class="notas"></div>
+        </section>
+
+        <section class="opcion">
+            <h2>Contactos</h2>
+            <hr>
+            <div id="opcionesContenedor" class="contactos"></div>
+        </section>
+
+        <section class="opcion">
+            <h2>Últimas reuniones</h2>
+            <hr>
+            <div id="opcionesContenedor" class="reuniones"></div>
+        </section>
+
+        <section class="opcion">
+            <h2>Últimas tareas</h2>
+            <hr>
+            <div id="opcionesContenedor" class="tareas"></div>
+        </section>
+
+        <section class="opcion">
+            <h2>Objetivos</h2>
+            <hr>
+            <div id="opcionesContenedor" class="objetivos"></div>
+        </section>
+    </div>
+</div>
+{% endblock %}

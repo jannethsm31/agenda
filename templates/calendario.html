@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %}Calendario Mensual{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/calendario.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -8,6 +10,8 @@
 {% block extra_js %}
     <script type="module" src="{{ url_for('static', filename='js/calendario.js') }}"></script>
 {% endblock %}
+
+{% block header_title %} Calendario {% endblock %}
 
 {% block content %}
 
