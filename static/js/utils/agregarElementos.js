@@ -2,8 +2,8 @@ const $ = (id) => document.querySelector(`.${id}`);
 
 // Función para agregar los datos a los contenedores correspondientes
 export const agregarDatos = (datos, claseContenedor) => {
-    console.log(datos, claseContenedor);
-    // Verifica si el string es JSON y conviértelo en un arreglo
+
+    // Verifica si los datos son un string JSON y conviértelo
     let parsedData;
     try {
         parsedData = JSON.parse(datos);  // Intenta convertir el string JSON a un objeto o arreglo
@@ -13,16 +13,37 @@ export const agregarDatos = (datos, claseContenedor) => {
     }
 
     const contenedor = $(claseContenedor);
-    console.log(contenedor);
 
+    // Verifica si es un arreglo y muestra los datos correspondientes
     if (Array.isArray(parsedData) && parsedData.length > 0) {
         parsedData.forEach(dato => {
             const elemento = document.createElement('p');
-            elemento.className = "elemento";
-            elemento.textContent = typeof dato === 'object' && dato.texto ? dato.texto : dato;
+            if (typeof dato === 'object') {
+                // Muestra cada propiedad si el dato es un objeto
+                elemento.textContent = Object.values(dato).join(' - ');
+            } else {
+                elemento.textContent = dato;
+            }
             contenedor.appendChild(elemento);
         });
-    } else {
+    }
+
+    // Si es un objeto con claves y valores (como actividades con fechas)
+    else if (typeof parsedData === 'object' && parsedData !== null) {
+        for (let key in parsedData) {
+            const subArray = parsedData[key];  // Cada fecha tiene un arreglo asociado
+            const sectionHeader = document.createElement('h3');
+            sectionHeader.textContent = `Actividades para el ${key}:`;
+            contenedor.appendChild(sectionHeader);
+
+            subArray.forEach(dato => {
+                const elemento = document.createElement('p');
+                elemento.textContent = Object.values(dato).join(' - ');
+                contenedor.appendChild(elemento);
+            });
+        }
+    }
+    else {
         contenedor.innerHTML = '<p>No hay datos disponibles</p>';
     }
 };

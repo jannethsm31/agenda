@@ -4,7 +4,7 @@ import { agregarDatos } from "./utils/agregarElementos.js";
 document.addEventListener('DOMContentLoaded', () => {
     // Obtener los valores del localStorage
     const notas = obtenerLocalStorage('notas') || [];
-    const actividades = obtenerLocalStorage('actividades') || [];
+    const actividades = obtenerLocalStorage('actividadesPorDia') || [];
     const contactos = obtenerLocalStorage('contactos') || [];
     const reuniones = obtenerLocalStorage('reuniones') || [];
     const tareas = obtenerLocalStorage('tareas') || [];
