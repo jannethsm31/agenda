@@ -3,7 +3,6 @@ header {
     margin-bottom: 20px;
 }
 
-
 .nota-form, .lista-notas {
     background-color: #fff;
     padding: 20px;
@@ -20,6 +19,7 @@ textarea {
     border: 2px solid #ddd;
     border-radius: 5px;
     resize: none;
+    margin-top: 15px;
 }
 
 button {
