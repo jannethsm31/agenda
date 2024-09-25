@@ -49,6 +49,17 @@ hr {
 
 /* Hacer que algunas tarjetas ocupen dos columnas */
 .opcion:nth-child(1),
+.opcion:nth-child(2) {
+    height: 250px;
+}
+
+.opcion:nth-child(3),
+.opcion:nth-child(4),
+.opcion:nth-child(5) {
+    height: 250px;
+}
+
+.opcion:nth-child(1),
 .opcion:nth-child(2),
 .opcion:nth-child(5){
     grid-column: span 2;

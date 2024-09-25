@@ -29,15 +29,16 @@ export const agregarDatos = (datos, claseContenedor) => {
     }
 
     // Si es un objeto con claves y valores (como actividades con fechas)
-    else if (typeof parsedData === 'object' && parsedData !== null) {
+    else if (typeof parsedData === 'object' && parsedData !== null && !Array.isArray(parsedData)) {
         for (let key in parsedData) {
             const subArray = parsedData[key];  // Cada fecha tiene un arreglo asociado
-            const sectionHeader = document.createElement('h3');
+            const sectionHeader = document.createElement('p');
             sectionHeader.textContent = `Actividades para el ${key}:`;
             contenedor.appendChild(sectionHeader);
 
             subArray.forEach(dato => {
                 const elemento = document.createElement('p');
+                dato['completada'] = dato['completada'] === false ? 'Sin completar' : 'Completada'
                 elemento.textContent = Object.values(dato).join(' - ');
                 contenedor.appendChild(elemento);
             });
